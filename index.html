@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+    <div class="place" style="text-align:center;">
+        <button class="button" style="position:absolute;top:50%;" onclick="RockPaperOrScissors()">Wanna Play?</button>
+    </div>
+    <h1 style="margin:0;position:absolute;top:40%;left:53%;-ms-transform:translate(-60%,-50%);transform:translate(-50%,-50%);">🪨📄✂️</h1>
+    <h1 style="margin:0;position:absolute;top:40%;left:33%;-ms-transform:translate(-60%,-50%);transform:translate(-50%,-50%);">CPU</h1>
+    <h1 id="cpu" style="margin:0;position:absolute;top:51%;left:33%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);"></h1>
+    <h1 style="margin:0;position:absolute;top:40%;left:73%;-ms-transform:translate(-60%,-50%);transform:translate(-50%,-50%);">PLAYER</h1>
+    <h1 id="player" style="margin:0;position:absolute;top:51%;left:73%;-ms-transform:translate(-60%,-50%);transform:translate(-50%,-50%);"></h1>
+
+<script type="text/javascript">
+    var RockPaperOrScissors = function(){
+        var response = prompt("Rock Paper or Scissors?");
+        var cpu = Math.random();
+        if(cpu < .2){
+            cpu = "Paper";
+            document.getElementById("cpu").innerHTML = "📄";
+        }else if(cpu < .7) {
+            cpu = "Scissors";
+            document.getElementById("cpu").innerHTML = "✂️";
+        } else {
+            cpu = "Rock";
+            document.getElementById("cpu").innerHTML = "🪨";
+        }
+        console.log("cpu = " +cpu );
+    var winner = function(cpu, player){
+        if (cpu === player){
+            document.getElementById("player").innerHTML = "💥";
+            document.getElementById("cpu").innerHTML = "💥";
+            confirm("TIE?!?!?!?!?!?!?");
+        } else if (cpu === "Rock"){
+            if (player === "Scissors"){
+                document.getElementById("player").innerHTML = "✂️";
+                confirm("CPU Wins!");
+            } else { 
+                document.getElementById("player").innerHTML = "📄";
+                confirm("You Win");
+            }
+        } else if (cpu === "Paper"){
+            if (player === "Rock"){
+                document.getElementById("player").innerHTML = "🪨";
+                confirm("CPU Wins!");
+            } else {
+                document.getElementById("player").innerHTML = "✂️";
+                confirm("You Win");
+            }
+        } else if (cpu === "Scissors"){
+            if (player === "Paper"){
+                document.getElementById("player").innerHTML = "📄";
+                confirm("CPU Wins!");
+            }else{
+                document.getElementById("player").innerHTML = "🪨";
+                confirm("You Win");
+            }
+        } else {
+            confirm("You owe me 10 Doubloons");
+        }
+    };
+    winner(cpu, response);
+    };
+
+</script>
+
+</html>
